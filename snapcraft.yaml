@@ -1,0 +1,30 @@
+name: restic-profile
+summary: Restic Backup With Resticprofile
+description: |
+      Resticprofile is a manager for restic.
+version: 0.24.0
+grade: devel
+confinement: devmode
+base: core22
+
+apps:
+  restic-profile:
+    command: bin/resticprofile
+  restic:
+    command: bin/restic
+parts:
+  resticprofile:
+    plugin: go
+    source-type: git
+    source: https://github.com/creativeprojects/resticprofile
+    source-branch: v0.24.0
+    source-submodules: []
+    build-snaps:
+      - go
+  restic:
+      plugin: go
+      source-type: git
+      source: https://github.com/restic/restic
+      source-branch: v0.16.3
+      build-snaps:
+        - go
