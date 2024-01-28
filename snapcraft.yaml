@@ -10,8 +10,6 @@ base: core22
 apps:
   restic-profile:
     command: bin/resticprofile
-  restic:
-    command: bin/restic
 parts:
   resticprofile:
     plugin: go
@@ -21,10 +19,3 @@ parts:
     source-submodules: []
     build-snaps:
       - go
-  restic:
-      plugin: go
-      source-type: git
-      source: https://github.com/restic/restic
-      source-branch: v0.16.3
-      build-snaps:
-        - go
